@@ -1,5 +1,5 @@
 
-# 🤖 Prompt Guardrails Engine – Multi‑LLM Structured AI Service
+# 🤖 Prompt Guardrails Engine – Multi‑LLM-AI Service
 
 A production‑style FastAPI microservice that sends prompts to LLMs and guarantees **validated structured JSON outputs** using guardrails, retries, caching, and provider switching.
 
