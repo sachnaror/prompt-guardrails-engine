@@ -44,6 +44,7 @@ Body:
 
 ## Execution Flow
 
+```
 Client Request
 → FastAPI Endpoint
 → Validation
@@ -55,6 +56,8 @@ Client Request
 → Guardrails Validation
 → Retry
 → Structured JSON Response
+
+```
 
 ---
 

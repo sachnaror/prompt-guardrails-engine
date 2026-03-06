@@ -298,3 +298,39 @@ Detailed API reference available here:
 
 
 ```
+
+## 🏗 System Architecture
+
+<img src="assets/architecture.png" width="800"/>
+
+
+
+## 🏗  LLM pipeline
+
+```
+
+Client
+  ↓
+FastAPI Endpoint
+  ↓
+Request Validation
+  ↓
+Rate Limiting
+  ↓
+Redis Cache
+  ↓
+Prompt Builder
+  ↓
+LLM Router
+  ↓
+OpenAI | Claude | Gemini | Bedrock
+  ↓
+Guardrails Validation
+  ↓
+Retry Logic
+  ↓
+Token Tracking + Latency
+  ↓
+Structured JSON Response
+
+```
