@@ -44,6 +44,40 @@ It converts **unpredictable LLM responses into reliable structured APIs**.
 
 ---
 
+
+## 🏗  LLM pipeline
+
+```
+
+Client
+  ↓
+FastAPI Endpoint
+  ↓
+Request Validation
+  ↓
+Rate Limiting
+  ↓
+Redis Cache
+  ↓
+Prompt Builder
+  ↓
+LLM Router
+  ↓
+OpenAI | Claude | Gemini | Bedrock
+  ↓
+Guardrails Validation
+  ↓
+Retry Logic
+  ↓
+Token Tracking + Latency
+  ↓
+Structured JSON Response
+
+```
+
+
+
+
 ## 🧠 Core Principles
 
 > AI responses must be validated before they are trusted.
@@ -304,33 +338,3 @@ Detailed API reference available here:
 <img src="assets/architecture.png" width="800"/>
 
 
-
-## 🏗  LLM pipeline
-
-```
-
-Client
-  ↓
-FastAPI Endpoint
-  ↓
-Request Validation
-  ↓
-Rate Limiting
-  ↓
-Redis Cache
-  ↓
-Prompt Builder
-  ↓
-LLM Router
-  ↓
-OpenAI | Claude | Gemini | Bedrock
-  ↓
-Guardrails Validation
-  ↓
-Retry Logic
-  ↓
-Token Tracking + Latency
-  ↓
-Structured JSON Response
-
-```
