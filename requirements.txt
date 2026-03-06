@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+pydantic
+python-dotenv
+openai
+redis
+slowapi
+tiktoken
+pytest
+httpx
