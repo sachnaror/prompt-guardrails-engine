@@ -1,21 +1,36 @@
-from openai import OpenAI
+"""
+LLM service router.
+
+This module selects which LLM provider to use
+based on configuration in the .env file.
+"""
+
 from app.config.settings import settings
 
-client = OpenAI(api_key=settings.OPENAI_API_KEY)
+from app.llm_clients import openai_client
+from app.llm_clients import claude_client
+from app.llm_clients import gemini_client
+from app.llm_clients import bedrock_client
 
 
 def call_llm(prompt: str) -> str:
     """
-    Sends prompt to LLM and returns raw response text.
+    Routes the prompt to the selected LLM provider.
     """
 
-    response = client.chat.completions.create(
-        model="gpt-4.1-mini",
-        messages=[
-            {"role": "system", "content": "Return only JSON."},
-            {"role": "user", "content": prompt}
-        ],
-        temperature=0
-    )
+    provider = settings.LLM_PROVIDER.lower()
 
-    return response.choices[0].message.content
+    if provider == "openai":
+        return openai_client.generate(prompt)
+
+    elif provider == "claude":
+        return claude_client.generate(prompt)
+
+    elif provider == "gemini":
+        return gemini_client.generate(prompt)
+
+    elif provider == "bedrock":
+        return bedrock_client.generate(prompt)
+
+    else:
+        raise ValueError(f"Unsupported LLM provider: {provider}")
