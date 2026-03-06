@@ -1,3 +1,5 @@
+```
+
 prompt-guardrails-engine/
 │
 ├── README.md                    # Explains what the project does, how to install, run, and test the API.
@@ -50,3 +52,5 @@ prompt-guardrails-engine/
 │
 └── scripts/
     └── run_server.sh            # Simple script to start the FastAPI server locally.
+
+```
